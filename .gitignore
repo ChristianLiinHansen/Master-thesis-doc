@@ -5,7 +5,22 @@ PythonTutorials
 Research
 sections
 Timetable and logbook
+ApplyMasterProject
 
 #Ignore these files
 *.md
+*.doc
+*.xml
 
+#Ignore these LaTex files
+*.aux
+*.log
+*.bbl
+*.blg
+*.dvi
+*.out
+*.gz
+*.tdo
+*.tex
+*.toc
+*.odt
