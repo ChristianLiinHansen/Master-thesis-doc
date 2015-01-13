@@ -1,1 +1,11 @@
+#Ignore these folders
+biblio
+images
+PythonTutorials
+Research
+sections
+Timetable and logbook
+
+#Ignore these files
 *.md
+
