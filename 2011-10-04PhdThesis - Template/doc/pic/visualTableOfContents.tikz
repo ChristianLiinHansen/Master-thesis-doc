@@ -1,0 +1,71 @@
+% !TEX encoding = utf8
+% !TEX program = latexmk
+% !TEX spellcheck = en_GB
+% !TEX root = cropweedrecognition.tex
+\begin{tikzpicture}
+\tikzstyle{Chapters}=[rectangle, draw, fill=black!10, text width=2.3cm, font=\footnotesize, node distance = 1.2cm and 0.6cm]
+\tikzstyle{Paper}=[circle, draw, font=\small, node distance=0.1cm, font=\tiny, xshift=1cm]
+\tikzstyle{Goals}=[Chapters, draw=black, fill=white, node distance = 0.6cm]
+
+% ==========================
+\node (LeafExtraction) [Chapters] {
+	Extraction of individual leaves. \\Chapter \ref{chapLocatingIndividualLeaves}};
+\node (PSEP) [Chapters, right=of LeafExtraction, yshift=-0.6cm] {
+	Plant centre estimation. \\Section \ref{ssecEstimationOfPlantStemEmergingPoints}};
+\node (PSEPGoal) [Goals, right=of PSEP] {
+	Control of mechanical in--row weeding device};
+
+\node (LeafRecognition) [Chapters, right=of LeafExtraction, yshift=0.6cm] {
+	Leaf based plant recognition. \\Section \ref{ssecClassificationOfIndividualLeaves}};
+
+% ==========================
+\node (Modicovi) [Chapters, above=of LeafExtraction] {
+	Weed pressure estimation. \\Chapter \ref{chapEstimationOfWeedPressureInMaize}};
+\node (ModicoviGoal) [Goals, right=of Modicovi] {
+	Control of sprayer boom};
+
+
+\node(Segmentation) [Chapters, left=of Modicovi, yshift=-3.55cm]{
+	Segmentation. \\Chapter \ref{chapSegmentationWithNaiveBayes}};
+
+
+% ==========================
+\node (Microsprayer) [Chapters, below=of LeafExtraction] {
+	Shape based classification. \\Chapter \ref{chapMicrosprayer}};
+\node (MicrosprayerActivation) [Goals, right=of Microsprayer] {
+	Activation of microsprayer.};
+
+% ==========================
+\node (LocalizedShapeFeatures) [Chapters, below=of Microsprayer] {
+	Localized shape based classification. \\Chapter \ref{chapFeatureBasedClassification}};
+
+
+\begin{scope}[arrows={-latex}]
+\newcommand{\shiftdist}{0.3cm}
+\draw (Segmentation.east) -- ++(\shiftdist, 0) |- (LeafExtraction);
+\draw (LeafExtraction.east) -- ++(\shiftdist, 0) |- (PSEP);
+\draw (LeafExtraction.east) -- ++(\shiftdist, 0) |- (LeafRecognition);
+\draw (Segmentation.east) -- ++(\shiftdist, 0) |- (Modicovi);
+\draw (Segmentation.east) -- ++(\shiftdist, 0) |- (Microsprayer);
+\draw (Segmentation.east) -- ++(\shiftdist, 0) |- (LocalizedShapeFeatures);
+\end{scope}
+
+% Mark articles
+\node (PaperI) [Paper, below=of Segmentation] {\ref{paperBayesSegmentation}};
+\node (PaperII) [Paper, below=of Modicovi] {\ref{paperModicovi}};
+\node (PaperIII) [Paper, below=of PSEP] {\ref{paperPSEP}};
+\node (PaperIV) [Paper, below=of Microsprayer] {\ref{paperPerformanceEval}};
+\node (PaperV) [Paper, below=of LocalizedShapeFeatures] {\ref{paperContextBasedCropRecognition}};
+
+\begin{scope}[arrows={-latex}]
+\draw (Segmentation) -- (PaperI);
+\draw (Modicovi) -- (PaperII);
+\draw (PSEP) -- (PaperIII);
+\draw (Microsprayer) -- (PaperIV);
+\draw (LocalizedShapeFeatures) -- (PaperV);
+\draw (Microsprayer) -- (MicrosprayerActivation);
+\draw (Modicovi) -- (ModicoviGoal);
+\draw (PSEP) -- (PSEPGoal);
+\end{scope}
+
+\end{tikzpicture}
