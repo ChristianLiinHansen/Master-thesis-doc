@@ -6,11 +6,17 @@ Research
 sections
 Timetable and logbook
 ApplyMasterProject
+2011-10-04PhdThesis - Template
 
 #Ignore these files
 *.md
 *.doc
 *.xml
+*.ps
+*.zip
+
+#Ignore any movie files
+*.mp4
 
 #Ignore these LaTex files
 *.aux
